@@ -42,7 +42,7 @@ def unliked_movie():
 @app.route("/did-not-watch", methods=["POST"])
 def did_not_watch():
     movie = all_movies[0]
-    movies = all_movies[1:]
+    all_movies.remove(all_movies[0])
     did_not_watch.append(movie)
     return jsonify({
         "status": "success"
