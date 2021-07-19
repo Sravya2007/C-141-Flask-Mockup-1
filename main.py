@@ -24,7 +24,7 @@ def get_movie():
 @app.route("/liked-movie", methods=["POST"])
 def liked_movie():
     movie = all_movies[0]
-    movies = all_movies[1:]
+    all_movies.remove(all_movies[0])
     liked_movies.append(movie)
     return jsonify({
         "status": "success"
@@ -33,7 +33,7 @@ def liked_movie():
 @app.route("/unliked-movie", methods=["POST"])
 def unliked_movie():
     movie = all_movies[0]
-    movies = all_movies[1:]
+    all_movies.remove(all_movies[0])
     not_liked_movies.append(movie)
     return jsonify({
         "status": "success"
